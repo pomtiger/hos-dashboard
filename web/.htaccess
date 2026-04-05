@@ -1,0 +1,13 @@
+# RewriteEngine on
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule . index.php [L]
+
+RewriteEngine on
+
+# ถ้าไฟล์หรือโฟลเดอร์มีอยู่จริง ให้เรียกโดยตรง
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# ถ้าไม่เจอ ให้ส่งทุกอย่างไปที่ index.php โดยรักษา Query String ไว้
+RewriteRule . index.php [L]
